@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 3813022121388875894}
   - component: {fileID: 8906668989853959590}
   - component: {fileID: -4646939007079801865}
-  - component: {fileID: 7641816281739351807}
+  - component: {fileID: 917997838188289876}
   m_Layer: 0
   m_Name: Tomato
-  m_TagString: Untagged
+  m_TagString: Product
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3452694226032689571}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21cb663240096874ca2fe567c8426bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigidBody: {fileID: -4646939007079801865}
 --- !u!54 &-4646939007079801865
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -114,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &7641816281739351807
+--- !u!65 &917997838188289876
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
