@@ -2109,7 +2109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     minValue: 1
-    maxValue: 10
+    maxValue: 5
     amount: 0
   questView: {fileID: 508565273687838880}
   productsConfig: {fileID: 11400000, guid: fe473f5d7166b244b8837a2ccf37b0c4, type: 2}
