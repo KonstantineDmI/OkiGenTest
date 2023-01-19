@@ -11,6 +11,7 @@ namespace Factory
         {
             var config = GetConfig(configId);
             ItemBehaviour instance = InstantiateItem(config.prefab);
+            instance.id = config.id;
             return instance;
         }
 

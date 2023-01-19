@@ -9,7 +9,8 @@ namespace Products
     public class Item
     {
         public int id;
+        public string name;
         public ItemBehaviour prefab;
-        public GameObject gameObject;
+        public Sprite sprite;
     }
 }

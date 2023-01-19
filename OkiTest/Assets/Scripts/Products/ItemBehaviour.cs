@@ -13,6 +13,8 @@ namespace Products
 
         public event Action<ItemBehaviour> OnMouseClicked;
 
+        public int id;
+        private bool _isUsed;
 
         public void SetKinematic(bool state)
         {
@@ -21,8 +23,13 @@ namespace Products
 
         private void OnMouseDown()
         {
-            Debug.Log("clicked");
+            if (_isUsed)
+            {
+                return;
+            }
+
             OnMouseClicked?.Invoke(this);
+            _isUsed = true;
         }
         private void OnDestroy()
         {

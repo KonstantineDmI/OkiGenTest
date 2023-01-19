@@ -17,9 +17,16 @@ namespace Factory
 
         public event Action<ItemBehaviour> OnItemSpawned;
 
+        private Coroutine _spawnRoutine;
+
         private void Start()
         {
-            StartCoroutine(SpawnCoroutine());
+           _spawnRoutine = StartCoroutine(SpawnCoroutine());
+        }
+
+        public void StopSpawner()
+        {
+            StopCoroutine(_spawnRoutine);
         }
 
         private IEnumerator SpawnCoroutine()

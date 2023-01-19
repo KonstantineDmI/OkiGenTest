@@ -9,9 +9,14 @@ namespace Player
 {
     public class PlayerBehaviour : MonoBehaviour
     {
-        [SerializeField] private TwoBoneIKConstraint twoBoneIKConstraint;
+        [SerializeField] private AnimationsController animationsController;
+        [SerializeField] private TwoBoneIKConstraint grabHand;
+        [SerializeField] private TwoBoneIKConstraint holdHand;
         [SerializeField] private Transform point;
         [SerializeField] private Transform cartPoint;
+        [SerializeField] private Cart cart;
+
+        private bool _playerIsBusy;
 
         public void Grab(ItemBehaviour item)
         {
@@ -19,13 +24,25 @@ namespace Player
             PutToCart(item);
         }
 
+        public void SetVictoryState()
+        {
+            animationsController.VictoryAnimation();
+            holdHand.weight = 0;
+        }
+
         private void ActivateHand(float value)
         {
-            DOTween.To(() => twoBoneIKConstraint.weight, x => twoBoneIKConstraint.weight = x, value, 0.3f);
+            DOTween.To(() => grabHand.weight, x => grabHand.weight = x, value, 0.3f);
         }
 
         private void PutToCart(ItemBehaviour item)
         {
+            if (_playerIsBusy)
+            {
+                return;
+            }
+
+            _playerIsBusy = true;
             point.DOMove(item.transform.position, 0.3f).OnComplete(() => 
             {
                 item.SetKinematic(true);
@@ -37,6 +54,8 @@ namespace Player
                     ActivateHand(0);
                     point.DOLocalMove(Vector3.zero, 0.3f);
                     item.SetKinematic(false);
+                    _playerIsBusy = false;
+                    cart.AddItem(item);
                 });
             });
         }
